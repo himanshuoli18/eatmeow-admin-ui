@@ -1,0 +1,41 @@
+/* Wrapper for the status dropdown */
+.status-wrapper {
+  border-radius: 6px;
+  padding: 2px 6px;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Elegant status colors */
+.status-preparing {
+  background-color: #8e9aaf; /* Warm gray */
+}
+
+.status-out-for-delivery {
+  background-color: #9c95fc; /* Soft violet */
+}
+
+.status-delivered {
+  background-color: #00b894; /* Muted teal */
+}
+
+select.status-dropdown {
+  background: none !important;
+  color: white;
+  font-weight: 500;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  min-width: 160px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: none !important;
+}
+
+
+/* Optional: subtle hover effect */
+.status-wrapper:hover {
+  filter: brightness(1.05);
+}
