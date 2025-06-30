@@ -1,7 +1,8 @@
-import axios from 'axios';
 import moment from 'moment';
 import { useCallback, useEffect, useState } from 'react';
 import './Orders.css';
+import { getAllOrders } from '../../services/OrderService';
+import { updateOrderStatus } from '../../services/OrderService';
 
 const Orders = () => {
   const [data, setData] = useState([]);
@@ -11,8 +12,8 @@ const Orders = () => {
   const fetchOrders = useCallback(async () => {
     setLoading(true);
     try {
-      const response = await axios.get('http://localhost:8080/api/orders/all');
-      const sorted = response.data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+      const response = await getAllOrders();
+      const sorted = response.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
       setData(sorted);
 
       const initialStatus = Object.fromEntries(
@@ -28,7 +29,7 @@ const Orders = () => {
 
   const handleStatusChange = async (orderId, newStatus) => {
     try {
-      await axios.patch(`http://localhost:8080/api/orders/status/${orderId}?status=${newStatus}`);
+      await updateOrderStatus(orderId, newStatus);
       fetchOrders(); // refresh after successful update
     } catch (error) {
       console.error('Failed to update order status:', error);

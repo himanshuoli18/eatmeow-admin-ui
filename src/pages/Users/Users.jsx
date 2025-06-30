@@ -1,7 +1,7 @@
-import axios from 'axios';
 import { useEffect, useState } from 'react';
 import moment from 'moment';
 import './Users.css';
+import {getAllUsers} from '../../services/userService'
 
 const Users = () => {
   const [users, setUsers] = useState([]);
@@ -9,8 +9,8 @@ const Users = () => {
 
   const fetchUsers = async () => {
     try {
-      const response = await axios.get('http://localhost:8080/api/users');
-      setUsers(response.data);
+      const response = await getAllUsers();
+      setUsers(response);
     } catch (error) {
       console.error('Failed to fetch users:', error);
     } finally {
