@@ -1,8 +1,8 @@
 import moment from 'moment';
 import { useCallback, useEffect, useState } from 'react';
 import './Orders.css';
-import { getAllOrders } from '../../services/OrderService';
-import { updateOrderStatus } from '../../services/OrderService';
+import { getAllOrders } from '../../services/orderService';
+import { updateOrderStatus } from '../../services/orderService';
 
 const Orders = () => {
   const [data, setData] = useState([]);
