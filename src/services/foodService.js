@@ -7,7 +7,12 @@ export const addFood = async (foodData, image) => {
   formData.append('food',JSON.stringify(foodData))
   formData.append('file', image)
   try {
-    await axios.post(API_URL, formData, {headers: {"Content-Type":"multipart/form-data"}})
+    await axios.post(
+      API_URL, 
+      formData, 
+      {
+        headers: {"Content-Type":"multipart/form-data"}
+      })
   } catch (error) {
     console.log('Error : ',error)
     throw error
