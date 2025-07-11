@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'https://eatmeow-api-production.up.railway.app/api/orders';
+const BASE_URL = 'https://eatmeow-api.onrender.com/api/orders';
 
 export const getAllOrders = async () => {
     const response = await axios.get(`${BASE_URL}/all`);
